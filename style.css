@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Gudea&family=Poppins:ital,wght@1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: grid;
+  background: rgb(8, 8, 8);
+  place-content: center;
+  font-family: poppins;
+  font-style: normal;
+  font-size: 12px;
+  color: #696969;
+}
+input {
+  display: none;
+}
+.accordion {
+  width: min-content;
+  /* padding: 10px; */
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+.accordion::after{
+  content: "";
+  position: absolute;
+  background: linear-gradient(to right,#6878e2,#754da5);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+.accordion .accordionmenu {
+  width: 100%;
+  display: flex;
+  background: lightblue;
+}
+
+.accordion .accordionmenu .accordionitem {
+  background-color: wheat;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  position: relative;
+  z-index: 3;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+}
+.accordion .accordionmenu .accordionitem span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0;
+  text-align: center;
+  overflow: hidden;
+  font-family: Arial;
+}
+.accordion .accordionmenu .accordionitem span::after {
+  content: "London";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 22px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  opacity: 0.2;
+  transform: translateY(70%);
+}
+.accordion .accordionmenu .accordionitem .bb::after {
+  content: "Paris";
+}
+.accordion .accordionmenu .accordionitem .cc::after {
+  content: "Barcelona";
+  font-size: 20px;
+}
+.accordion .accordionmenu .accordionitem .dd::after {
+  content: "Madrid";
+}
+.accordion .accordionmenu .a {
+  background: #e9edf4;
+}
+.accordion .accordionmenu .accordionitem:hover span::after {
+  transform: translateY(-100%);
+  transition: 1.4s;
+}
+.accordion .accordionmenu .b {
+  background: #dde4ee;
+}
+
+.accordion .accordionmenu .c {
+  background: rgb(213, 221, 234);
+}
+.accordion .accordionmenu .d {
+  background: rgb(202, 213, 230);
+}
+/* accordionbutton style onclick start */
+#london:checked ~ .accordion .accordionmenu .a {
+  color: rgb(148, 1, 192);
+}
+#Paris:checked ~ .accordion .accordionmenu .b {
+  color: rgb(148, 1, 192);
+}
+#Barcelona:checked ~ .accordion .accordionmenu .c {
+  color: rgb(148, 1, 192);
+}
+#Madrid:checked ~ .accordion .accordionmenu .d {
+  color: rgb(148, 1, 192);
+}
+/* accordionbutton style onclick end */
+
+/* accordionitem before starting */
+.accordion .accordionmenu .accordionitem::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: white;
+  transition: 0.4s;
+  z-index: -1;
+}
+#london:checked ~ .accordion .accordionmenu .a::before {
+  height: 113%;
+}
+#Paris:checked ~ .accordion .accordionmenu .b::before {
+  height: 113%;
+}
+#Barcelona:checked ~ .accordion .accordionmenu .c::before {
+  height: 113%;
+}
+#Madrid:checked ~ .accordion .accordionmenu .d::before {
+  height: 113%;
+}
+/* accordionitem before end */
+.accordion .accordionmenu .accordionitem::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7%;
+  background: linear-gradient(to right, #667ae5, #754da5);
+  transition: 0.2s;
+  z-index: -1;
+  transform: translateY(-0px);
+  opacity: 0;
+}
+.accordion .accordionmenu .accordionitem:hover::after {
+  height: 100%;
+  opacity: 1;
+  background: linear-gradient(130deg, #6878e2, #7352ac);
+}
+.accordion .accordionmenu .accordionitem:hover {
+  color: white;
+}
+#london:checked ~ .accordion .accordionmenu .a::after {
+  transform: translateY(-12px);
+  transition-delay: 0.2s;
+  opacity: 1;
+  height: 7%;
+}
+#Paris:checked ~ .accordion .accordionmenu .b::after {
+  transform: translateY(-12px);
+  transition-delay: 0.2s;
+  opacity: 1;
+  height: 7%;
+}
+#Barcelona:checked ~ .accordion .accordionmenu .c::after {
+  transform: translateY(-12px);
+  transition-delay: 0.2s;
+  opacity: 1;
+  height: 7%;
+}
+#Madrid:checked ~ .accordion .accordionmenu .d::after {
+  transform: translateY(-12px);
+  transition-delay: 0.2s;
+  opacity: 1;
+  height: 7%;
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+.accordion .accordioncontent {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.accordion .accordioncontent .accordioncontentspan {
+  position: absolute;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  transform: translate(-100px, 80px) rotate(90deg);
+  transition: 0.3s;
+  opacity: .1;
+  color: #754da5;
+}
+#london:checked ~ .accordion .accordioncontent .aaa {
+  transform: translate(-45px, 80px) rotate(90deg);
+}
+#Paris:checked ~ .accordion .accordioncontent .bbb {
+  transform: translate(-25px, 80px) rotate(90deg);
+}
+#Barcelona:checked ~ .accordion .accordioncontent .ccc {
+  transform: translate(-65px, 80px) rotate(90deg);
+}
+#Madrid:checked ~ .accordion .accordioncontent .ddd {
+  transform: translate(-40px, 80px) rotate(90deg);
+}
+.accordion .accordioncontent .accordioncontentitem {
+  /* font-size: 16px; */
+  position: absolute;
+  top: 0%;
+  left: 0;
+  padding: 50px;
+  opacity: 0;
+  transform: translateX(30px);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+#london:checked ~ .accordion .accordioncontent .contentone {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: 0.5s;
+}
+#Paris:checked ~ .accordion .accordioncontent .contenttwo {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: 0.5s;
+}
+#Barcelona:checked ~ .accordion .accordioncontent .contentthree {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: 0.5s;
+}
+#Madrid:checked ~ .accordion .accordioncontent .contentfour {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: 0.5s;
+}
